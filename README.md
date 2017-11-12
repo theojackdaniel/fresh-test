@@ -7,3 +7,11 @@ Slighly Modified to fit our coding requirement
 
 ## Setup
 ```> yarn```
+
+Exercice: 
+
+Create a script file (BASH, PYTON, NODE):
+
+- run the unit tests from test.js
+- if the tests are successful, build a docker image and deploy it to a micro instance in google container engine
+- git tag the commit with the image name and the timestamp of the deployment
