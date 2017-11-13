@@ -19,7 +19,7 @@ then
     echo 'Argument missing, please specify name of docker image,
       version of this image, name of the cluster and name of deployment'
 else
-    yarn
+    npm install;
     npm test;
     if test $? -eq 0
     then
