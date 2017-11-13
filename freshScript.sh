@@ -41,7 +41,7 @@ else
         kubectl expose deployment ${4} --type=LoadBalancer --port 80 --target-port 8080
 
         # excessive pause needed, server is not always running otherwise
-        sleep 60
+        sleep 45
 
         #Curl the service to check that server.js is launched
         export EXTERNALIP="$(kubectl describe services ${4} | grep "LoadBalancer Ingress:" | cut -d " " -f 7)"
@@ -53,11 +53,11 @@ else
         # gcloud compute forwarding-rules list
         # yes | gcloud container clusters delete ${3} --zone us-central1-b
         
-        #export TIMESTAMP="$(docker images gcr.io/${PROJECT_ID}/${1} | grep  ${2} | 
-
         git add -A
-        git commit -m "Image name: ${1}, Deployment Timestamp: N/A"
-        #git tag -a {$1}
+        git commit -m "Image name: ${1}"
+        #TIMESTAMP in tag by default
+        git tag -a v1.2 -m "Image name: ${1}"
+        git show v1.2
 
     else
         echo 'Unit test did not pass, please check again'

@@ -25,23 +25,22 @@ describe("Start server", function() {
 
 
   it('should start server and response to requests with the content "hello world"',
-    function(done){
-      server.listen(port);
-      http.get('http://localhost:' + port, function(response) {
-				(response.statusCode).should.equal(200);
+     function(done){
+      server.listen(8080);
+      http.get('http://localhost:' + 8080, function(response) {
+        console.log(`Testing status code equal 200`);        
+        (response.statusCode).should.equal(200);
         var body = '';
-        // for some reason it doesn't always execute the code below?
-        console.log(`server listening on port ${port}`);
-        
 				response.on('data', function(d) {
 					body += d;
-				});
+        });
+        console.log(`Testing body is hello world`);                
 				response.on('end', function() {
 				(body).should.equal(`Hello, World!\nHostname: ${os.hostname()}\n`);
-				});
-			});
-
-    this.slow("1s");
-    done();
+        });
+        done();
+      });
+    //this.slow("1s");
+   
   });
 });
