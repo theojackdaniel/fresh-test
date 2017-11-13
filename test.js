@@ -28,7 +28,7 @@ describe("Start server", function() {
     function(done){
       server.listen(port);
       http.get('http://localhost:' + port, function(response) {
-				(response.statusCode).should.equal(201);
+				(response.statusCode).should.equal(200);
         var body = '';
         // for some reason it doesn't always execute the code below?
         console.log(`server listening on port ${port}`);
