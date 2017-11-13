@@ -43,7 +43,8 @@ else
         # excessive pause needed, server is not always running otherwise
         sleep 45
 
-        #Curl the service to check that server.js is launched
+        #Curl the service to check that server.js is launched.
+        #If it didn't work, go on Google Container Engine page directly
         export EXTERNALIP="$(kubectl describe services ${4} | grep "LoadBalancer Ingress:" | cut -d " " -f 7)"
         curl $EXTERNALIP:80
 
@@ -55,9 +56,9 @@ else
         
         git add -A
         git commit -m "Image name: ${1}"
-        #TIMESTAMP in tag by default
-        git tag -a v1.2 -m "Image name: ${1}"
-        git show v1.2
+        #TIMESTAMP of deployment is in tag by default
+        git tag -a v1.0 -m "Image name: ${1}"
+        #git show v1.0
 
     else
         echo 'Unit test did not pass, please check again'

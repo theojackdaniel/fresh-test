@@ -16,7 +16,6 @@ describe("Start server", function() {
       port = portReply;
       done();
     });
-    
   });
 
   after(function() {
