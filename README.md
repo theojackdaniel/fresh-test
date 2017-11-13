@@ -4,11 +4,12 @@ Sample project taken from [Google Container Engine Sample Codes](https://github.
 
 Slighly Modified to fit our coding requirement 
 
+# freshScript.sh USAGE
 
-## Setup
-```> yarn```
+./freshScript.sh docker_image_name docker_image_version gcloud_cluster_name kubernetes_service_name 
 
-Exercice: 
+
+# Exercice: 
 
 Create a script file (BASH, PYTON, NODE):
 
